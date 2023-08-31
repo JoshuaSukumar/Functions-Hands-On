@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>Javascript-Functions-Hands-On</title>
+</head>
+<body>
+   <h1>Functions-Hands-On</h1>
+   <section>
+      <h2>Question 1 :- Create one function with zero parameter having a console statement;</h2>
+      <pre>
+         function test() {
+            let string1 = 'This is the answer for question 1';
+            let answer1 = document.getElementById('answer1');
+            answer1.innerText = string1;
+            console.log(string1);
+         }
+         test();
+      </pre>
+      <p id="ans1"></p>
+   </section>
+
+   <section>
+      <h2>Question 2 :- Create one function which takes two values as a parameter and print the sum of them as "Sum of 3, 4 is 7"</h2>
+      <pre>
+         function sum(num1, num2) {
+            let Sum = num1 + num2;
+            let string2 = `Sum of  ${num1}, ${num2} is ${Sum}`;
+            let answer2 = document.getElementById('answer2');
+            answer2.innerText = string2;
+            console.log(string2);
+         }
+         sum(3, 4);
+            </pre>
+      <p id="ans2"></p>
+   </section>
+
+   <section>
+      <h2>Question 3 :- Create one arrow function</h2>
+      <pre>
+         let add = 0;
+         const multi = (num1, num2) => {
+            let answer3 = document.getElementById('answer3');
+            add = `Multiplication of  ${num1} and ${num2} is ${num1 * num2}`
+            answer3.innerText = add;
+            console.log(add);
+         }
+         multi(13, 5);
+      </pre>
+      <p id="ans3"></p>
+   </section>
+
+   <section>
+      <h2>Question 4 :- </h2>
+      <pre>
+         var x = 21;
+         var girl = function () {
+            console.log(x);
+            var x = 20;
+         };
+         girl ();
+      </pre>
+      <p id="ans4"></p>
+      <p class="comment">Undefined because the variable "x" is already declared within the girl function without initialization of the value. <br> The Initialization is done after printing the variable 'x' so the variable is declared but not initialized so it store the value "undefined"</p>
+   </section>
+
+   <section>
+      <h2>Question 5 :- </h2>
+      <pre>
+         var x = 21;
+         girl ();
+         console.log(x)
+         function girl() {
+            console.log(x);
+            var x = 20;
+         };
+      </pre>
+      <p id="ans6">undefined</p>
+      <p id="ans5"></p>
+      <p class="comment">"undefined" because even though we are calling the function before declaration but inside the function the variable "x" is declared first then later initialization is done. So when variable is declared but not initlized then the variable store the undefined value. <br> <br>"21" is the second output because there is a variable "x" which is delcared and initialized a value so it returns the ouput as expected in the variable.</p>
+   </section>
+
+   <section>
+      <h2>Question 6 :- </h2>
+      <pre>
+         var x = 21;
+         a();
+         b();
+         function a() {
+            x = 20;
+            console.log(x);
+         };
+         function b() {
+            x = 40;
+            console.log(x);
+         };
+      </pre>
+      <p id="ans7"></p>
+      <p id="ans8"></p>
+      <p class="comment">First output is "20" because the global variable x = 21 is changing inside the a() function, x = 20 becomes a local variable inside the function a() so we declared and initialized the value so it will return the output "20". <br><br> Second output is "40" same as the first output we change the variable inside the function b() so "x" became a local variable inside the function and declaration and initialization is also done therefore resulting in "40". <br> <br> A function can be called before declaration it is called "Function Hoisting" there will be no error</p>
+   </section>
+
+   <section>
+      <h2>Question 7 :- Write a function that accepts parameter n and returns factorial of n</h2>
+      <pre>
+         function factorial (n) {
+            let fact = 1;
+            let string3 = '';
+            for(let i=1; i<=n; i++) {
+               fact *= i;
+            }
+            string3 = `The factorial of ${n} is ${fact}`;
+            let answer9 = document.getElementById('answer9');
+            answer9.innerText = string3;
+            console.log(fact);
+         }
+         factorial(10);
+      </pre>
+      <p id="ans9"></p>
+   </section>
+
+   <section>
+      <h2>Question 8 :- Guess the Output</h2>
+      <pre>
+         function FindSum(a, b){
+            return a + b;
+         }
+         function DisplayData(data, batch){
+            console.log(`i am from ${data} and My batch is EA${batch}`)
+         }
+         DisplayData("PrepBytes", FindSum(10, 9));
+      </pre>
+      <p id="ans10"></p>
+   </section>
+
+   <section>
+      <h2>Question 9 :- Guess the Output</h2>
+      <pre>
+         Abc();
+         const Abc = function(){
+            let value = 20;
+            console.log(value);
+         }
+      </pre>
+      <p id="ans11">Uncaught ReferenceError: Cannot access 'Abc' before initialization</p>
+      <p class="comment">Here Abc() is an arrow function, where an arrow function cannot be called before declaration because the arrow function is stored inside the variable. A variable does not return any value before declaration.</p>
+   </section>
+
+   <section>
+      <h2>Question 10 :- Guess the Output</h2>
+      <pre>
+         var a = 10;
+         (function (){
+            console.log(a);
+            var a = 20;
+         })();
+      </pre>
+      <p id="ans12">undefined</p>
+      <p class="comment">The output will be "undefined" because we are returning the variable before initilizing the value. The initializing the value for the variable "a" is done after console.log.</p>
+   </section>
+
+   <section>
+      <h2>Question 11 :- Guess the Output</h2>
+      <pre>
+         const greet =  function(name){
+               return function(m){
+               console.log(`Hi!! ${name}, ${m}`);
+            }
+         }
+         const greet_message = greet('EA19');
+         greet_message("Welcome To PrepBytes")
+      </pre>
+      <p id="ans13">Hi!! EA19, Welcome To PrepBytes</p>
+   </section>
+   <script src="./script.js"></script>
+</body>
+</html>
